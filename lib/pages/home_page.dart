@@ -1,7 +1,7 @@
 import 'package:expenses_ui_challenge/constants/app_constants.dart';
+import 'package:expenses_ui_challenge/widgets/card_widget.dart';
 import 'package:expenses_ui_challenge/widgets/header.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -18,45 +18,71 @@ class HomePage extends StatelessWidget {
           ),
           child: Column(
             children: [
-              const Header(),
-              const SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 16,
-                  horizontal: 6.0,
-                ),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.red,
-                    borderRadius: BorderRadius.circular(24),
-                  ),
-                  width: double.infinity,
-                  height: 200,
-                  child: Padding(
-                    padding: const EdgeInsets.all(26),
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text(
-                              'Carlos Diaz',
-                              style: TextStyle(
-                                color: AppConstants.titleTextColor,
-                                fontSize: 14,
-                                fontWeight: FontWeight.w500,
+              Header(),
+              SizedBox(height: 20),
+              CardWidget(),
+              SizedBox(height: 20),
+              Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'My Wallet',
+                      style: TextStyle(
+                        color: AppConstants.titleTextColor,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    SizedBox(height: 15),
+                    Container(
+                      padding: EdgeInsets.all(16),
+                      width: double.infinity,
+                      height: 72,
+                      decoration: BoxDecoration(
+                        color: AppConstants.lightGreyColor,
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                '\$65,500.60',
+                                style: TextStyle(
+                                  color: AppConstants.titleTextColor,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                              ),
+                              SizedBox(height: 6),
+                              Text(
+                                'Budget for this month',
+                                style: TextStyle(
+                                  color: AppConstants.subtitleTextColor,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ],
+                          ),
+                          ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              elevation: 0,
+                              primary: AppConstants.blueColor,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20.0),
                               ),
                             ),
-                            SvgPicture.asset(
-                              'assets/mastercard-logo-svg.svg',
-                              height: 24,
-                              width: 28,
-                            ),
-                          ],
-                        ),
-                      ],
+                            child: Text('See Activity'),
+                          )
+                        ],
+                      ),
                     ),
-                  ),
+                  ],
                 ),
               )
             ],
