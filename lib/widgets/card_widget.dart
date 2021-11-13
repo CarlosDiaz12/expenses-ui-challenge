@@ -45,7 +45,7 @@ class CardWidget extends StatelessWidget {
                     style: TextStyle(
                       color: AppConstants.titleTextColor,
                       fontSize: 14,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
                   SvgPicture.asset(
@@ -61,9 +61,9 @@ class CardWidget extends StatelessWidget {
                   Text(
                     'BALANCE',
                     style: TextStyle(
-                      color: Colors.grey[700],
-                      fontSize: 9,
-                      fontWeight: FontWeight.w400,
+                      color: Colors.grey[850],
+                      fontSize: 10,
+                      fontWeight: FontWeight.normal,
                     ),
                   ),
                   const SizedBox(height: 8),

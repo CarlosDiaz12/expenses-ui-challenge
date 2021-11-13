@@ -56,8 +56,8 @@ class HomePage extends StatelessWidget {
                                 'Budget for this month',
                                 style: TextStyle(
                                   color: AppConstants.subtitleTextColor,
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.w400,
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w500,
                                 ),
                               ),
                             ],

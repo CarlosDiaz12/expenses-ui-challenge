@@ -11,9 +11,11 @@ class CustomBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(16),
+      padding: EdgeInsets.all(15),
       width: double.infinity,
-      height: 72,
+      constraints: BoxConstraints(
+        minHeight: 72,
+      ),
       decoration: BoxDecoration(
         color: AppConstants.lightGreyColor,
         borderRadius: BorderRadius.circular(15),
