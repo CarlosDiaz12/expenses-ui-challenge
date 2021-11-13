@@ -1,5 +1,6 @@
 import 'package:expenses_ui_challenge/constants/app_constants.dart';
 import 'package:expenses_ui_challenge/widgets/card_widget.dart';
+import 'package:expenses_ui_challenge/widgets/custom_box.dart';
 import 'package:expenses_ui_challenge/widgets/header.dart';
 import 'package:flutter/material.dart';
 
@@ -35,14 +36,7 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 15),
-                    Container(
-                      padding: EdgeInsets.all(16),
-                      width: double.infinity,
-                      height: 72,
-                      decoration: BoxDecoration(
-                        color: AppConstants.lightGreyColor,
-                        borderRadius: BorderRadius.circular(15),
-                      ),
+                    CustomBox(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -82,6 +76,22 @@ class HomePage extends StatelessWidget {
                         ],
                       ),
                     ),
+                    SizedBox(height: 15),
+                    Row(
+                      children: [
+                        Flexible(
+                          child: CustomBox(
+                            child: Text('hola'),
+                          ),
+                        ),
+                        SizedBox(width: 16),
+                        Flexible(
+                          child: CustomBox(
+                            child: Text('hola'),
+                          ),
+                        ),
+                      ],
+                    )
                   ],
                 ),
               )
