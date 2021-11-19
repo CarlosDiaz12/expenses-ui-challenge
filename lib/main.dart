@@ -1,3 +1,5 @@
+import 'pages/activity_page.dart';
+
 import 'pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -18,7 +20,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      themeMode: ThemeMode.system,
       theme: ThemeData(
         canvasColor: Colors.white,
         primarySwatch: Colors.blue,
@@ -30,6 +31,9 @@ class MyApp extends StatelessWidget {
         canvasColor: Colors.grey[900],
       ),
       home: const HomePage(),
+      routes: {
+        ActivityPage.routeName: (ctx) => ActivityPage(),
+      },
     );
   }
 }

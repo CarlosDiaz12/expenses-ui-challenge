@@ -1,3 +1,5 @@
+import '../pages/activity_page.dart';
+
 import '../constants/app_constants.dart';
 import 'package:flutter/material.dart';
 
@@ -39,7 +41,9 @@ class WalletOverviewSection extends StatelessWidget {
                   ],
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(ActivityPage.routeName);
+                  },
                   style: ElevatedButton.styleFrom(
                     elevation: 0,
                     primary: AppConstants.blueColor,

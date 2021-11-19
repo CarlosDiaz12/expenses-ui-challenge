@@ -1,4 +1,4 @@
-import 'package:expenses_ui_challenge/model/transaction.dart';
+import '../model/transaction.dart';
 import 'package:flutter/material.dart';
 
 class AppConstants {

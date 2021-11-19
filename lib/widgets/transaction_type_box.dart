@@ -1,7 +1,8 @@
+import 'package:flutter/material.dart';
+
 import '../constants/app_constants.dart';
 import 'custom_box.dart';
 import 'muted_text.dart';
-import 'package:flutter/material.dart';
 
 class TransactionTypeBox extends StatelessWidget {
   final IconData icon;
