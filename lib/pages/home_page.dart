@@ -1,3 +1,5 @@
+import 'package:flutter/services.dart';
+
 import '../widgets/transaction_list_widget.dart';
 import 'package:flutter/material.dart';
 import '../widgets/bottom_navigation.dart';
@@ -10,6 +12,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+    ));
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
