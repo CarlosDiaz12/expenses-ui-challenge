@@ -11,7 +11,7 @@ class Header extends StatelessWidget {
       children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
+          children: [
             Text(
               'Good Morning',
               style: TextStyle(

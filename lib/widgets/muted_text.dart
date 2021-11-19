@@ -12,9 +12,9 @@ class MutedText extends StatelessWidget {
     return Text(
       label,
       style: TextStyle(
-        color: AppConstants.subtitleTextColor,
-        fontSize: customFontSize ?? 11,
-        fontWeight: FontWeight.w500,
+        color: AppConstants.subtitleTextColor.withOpacity(0.8),
+        fontSize: customFontSize ?? 12,
+        fontWeight: FontWeight.w600,
       ),
     );
   }

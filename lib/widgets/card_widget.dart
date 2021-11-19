@@ -40,7 +40,7 @@ class CardWidget extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
+                  Text(
                     'Carlos Diaz',
                     style: TextStyle(
                       color: AppConstants.titleTextColor,
@@ -67,7 +67,7 @@ class CardWidget extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 8),
-                  const Text(
+                  Text(
                     '\$65,500.60',
                     style: TextStyle(
                       color: AppConstants.titleTextColor,
@@ -79,7 +79,7 @@ class CardWidget extends StatelessWidget {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children: [
                   Text(
                     '0123 4567 8910 1112',
                     style: TextStyle(

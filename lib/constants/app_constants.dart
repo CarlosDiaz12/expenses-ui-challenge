@@ -1,3 +1,4 @@
+import 'package:expenses_ui_challenge/model/transaction.dart';
 import 'package:flutter/material.dart';
 
 class AppConstants {
@@ -7,13 +8,27 @@ class AppConstants {
   static const greenColor = Color(0xFF20C764);
   static const lightGreyColor = Color(0xFFF7F9FC);
   static const greyColor = Color(0xFFeFF1F5);
-  static const titleTextColor = Color(0xFF212226);
+  static Color titleTextColor = Color(0xFF212226).withOpacity(0.9);
   static const subtitleTextColor = Color(0xFF999EA6);
   static const yellowColor = Color(0xFFFFDE2C);
   static const itemTextStyle = TextStyle(fontWeight: FontWeight.w600);
-  static const primaryTextStyle = TextStyle(
+  static TextStyle primaryTextStyle = TextStyle(
     color: AppConstants.titleTextColor,
-    fontSize: 14,
-    fontWeight: FontWeight.w500,
+    fontSize: 15,
+    fontWeight: FontWeight.w600,
   );
+  static List<Transaction> TRANSACTION_LIST = <Transaction>[
+    Transaction(
+      name: 'Spotify Premium',
+      amount: 65,
+      date: DateTime.now(),
+      imageUrl: 'assets/spotify-logo.png',
+    ),
+    Transaction(
+      name: 'App Store',
+      amount: 30,
+      date: DateTime.now(),
+      imageUrl: 'assets/apple-logo.png',
+    ),
+  ];
 }

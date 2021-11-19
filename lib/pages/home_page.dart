@@ -1,14 +1,11 @@
-import '../constants/app_constants.dart';
-import 'wallet_overview.dart';
+import 'package:expenses_ui_challenge/constants/app_constants.dart';
+import 'package:expenses_ui_challenge/widgets/muted_text.dart';
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import '../widgets/bottom_navigation.dart';
 import '../widgets/card_widget.dart';
-import '../widgets/custom_box.dart';
 import '../widgets/header.dart';
-import '../widgets/muted_text.dart';
-import '../widgets/transaction_type_box.dart';
 import '../widgets/wallet_overview_section.dart';
-import 'package:flutter/material.dart';
-import 'dart:math' as math;
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -30,6 +27,48 @@ class HomePage extends StatelessWidget {
               CardWidget(),
               SizedBox(height: 20),
               WalletOverviewSection(),
+              SizedBox(height: 20),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Transaction',
+                    style: AppConstants.primaryTextStyle,
+                  ),
+                  SizedBox(height: 20),
+                  ListView.separated(
+                    physics: NeverScrollableScrollPhysics(),
+                    separatorBuilder: (ctx, i) => SizedBox(height: 10),
+                    shrinkWrap: true,
+                    itemCount: AppConstants.TRANSACTION_LIST.length,
+                    itemBuilder: (ctx, index) {
+                      var transaction = AppConstants.TRANSACTION_LIST[index];
+                      return ListTile(
+                        title: Text(
+                          transaction.name,
+                          style: AppConstants.primaryTextStyle.copyWith(
+                            fontSize: 16,
+                          ),
+                        ),
+                        leading: CircleAvatar(
+                          radius: 26,
+                          backgroundColor: AppConstants.greyColor,
+                          child: Image.asset(
+                            transaction.imageUrl,
+                            width: 32,
+                            height: 32,
+                          ),
+                        ),
+                        subtitle: MutedText(
+                          label: DateFormat.yMMMd()
+                              .add_jm()
+                              .format(transaction.date),
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
             ],
           ),
         ),
