@@ -10,4 +10,10 @@ class AppConstants {
   static const titleTextColor = Color(0xFF212226);
   static const subtitleTextColor = Color(0xFF999EA6);
   static const yellowColor = Color(0xFFFFDE2C);
+  static const itemTextStyle = TextStyle(fontWeight: FontWeight.w600);
+  static const primaryTextStyle = TextStyle(
+    color: AppConstants.titleTextColor,
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+  );
 }

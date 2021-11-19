@@ -1,8 +1,12 @@
 import 'package:expenses_ui_challenge/constants/app_constants.dart';
+import 'package:expenses_ui_challenge/widgets/bottom_navigation.dart';
 import 'package:expenses_ui_challenge/widgets/card_widget.dart';
 import 'package:expenses_ui_challenge/widgets/custom_box.dart';
 import 'package:expenses_ui_challenge/widgets/header.dart';
+import 'package:expenses_ui_challenge/widgets/muted_text.dart';
+import 'package:expenses_ui_challenge/widgets/transaction_type_box.dart';
 import 'package:flutter/material.dart';
+import 'dart:math' as math;
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -29,11 +33,7 @@ class HomePage extends StatelessWidget {
                   children: [
                     Text(
                       'My Wallet',
-                      style: TextStyle(
-                        color: AppConstants.titleTextColor,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      style: AppConstants.primaryTextStyle,
                     ),
                     SizedBox(height: 15),
                     CustomBox(
@@ -52,14 +52,7 @@ class HomePage extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(height: 6),
-                              Text(
-                                'Budget for this month',
-                                style: TextStyle(
-                                  color: AppConstants.subtitleTextColor,
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
+                              MutedText(label: 'Budget for this month'),
                             ],
                           ),
                           ElevatedButton(
@@ -80,14 +73,20 @@ class HomePage extends StatelessWidget {
                     Row(
                       children: [
                         Flexible(
-                          child: CustomBox(
-                            child: Text('hola'),
+                          child: TransactionTypeBox(
+                            icon: Icons.south_west,
+                            title: 'Income',
+                            description: '\$23,953',
+                            circleColor: AppConstants.greenColor,
                           ),
                         ),
                         SizedBox(width: 16),
                         Flexible(
-                          child: CustomBox(
-                            child: Text('hola'),
+                          child: TransactionTypeBox(
+                            icon: Icons.north_east,
+                            title: 'Outcome',
+                            description: '\$10,524',
+                            circleColor: AppConstants.redColor,
                           ),
                         ),
                       ],
@@ -99,6 +98,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: BottomNavigation(),
     );
   }
 }
