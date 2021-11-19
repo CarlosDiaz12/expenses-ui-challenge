@@ -1,6 +1,6 @@
-import 'package:expenses_ui_challenge/constants/app_constants.dart';
-import 'package:expenses_ui_challenge/widgets/custom_box.dart';
-import 'package:expenses_ui_challenge/widgets/muted_text.dart';
+import '../constants/app_constants.dart';
+import 'custom_box.dart';
+import 'muted_text.dart';
 import 'package:flutter/material.dart';
 
 class TransactionTypeBox extends StatelessWidget {

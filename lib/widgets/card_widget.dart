@@ -1,4 +1,4 @@
-import 'package:expenses_ui_challenge/constants/app_constants.dart';
+import '../constants/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
