@@ -1,7 +1,8 @@
-import 'package:expenses_ui_challenge/constants/app_constants.dart';
-import 'package:expenses_ui_challenge/widgets/custom_box.dart';
-import 'package:expenses_ui_challenge/widgets/muted_text.dart';
-import 'package:fl_chart/fl_chart.dart';
+import 'package:expenses_ui_challenge/widgets/transaction_list_widget.dart';
+
+import '../constants/app_constants.dart';
+import '../widgets/activity_page_header.dart';
+import '../widgets/spending_limit_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -24,42 +25,7 @@ class ActivityPage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Monthly Report',
-                    style: AppConstants.primaryTextStyle,
-                  ),
-                  Container(
-                    padding: const EdgeInsets.only(left: 10.0, right: 10.0),
-                    decoration: BoxDecoration(
-                      color: AppConstants.lightGreyColor,
-                      borderRadius: BorderRadius.circular(10.0),
-                      border: Border.all(
-                        style: BorderStyle.none,
-                      ),
-                    ),
-                    child: DropdownButton<String>(
-                      elevation: 0,
-                      value: '01',
-                      icon: Icon(Icons.keyboard_arrow_down_rounded),
-                      items: [
-                        DropdownMenuItem(
-                          child: MutedText(
-                            label: 'January',
-                            customFontSize: 14,
-                          ),
-                          value: '01',
-                        ),
-                      ],
-                      isDense: true,
-                      underline: Container(),
-                      dropdownColor: AppConstants.greyColor,
-                    ),
-                  ),
-                ],
-              ),
+              ActivityPageHeader(),
               SizedBox(height: 10),
               Container(
                 color: AppConstants.lightGreyColor,
@@ -70,71 +36,11 @@ class ActivityPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20),
-              CustomBox(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Flexible(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Montly spending limit',
-                            style: AppConstants.primaryTextStyle.copyWith(
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 0.1,
-                            ),
-                          ),
-                          SizedBox(height: 10),
-                          MutedText(label: 'Spend: \$5,000/\$10,000'),
-                        ],
-                      ),
-                    ),
-                    Flexible(
-                      child: Stack(
-                        children: [
-                          Container(
-                            margin: EdgeInsets.only(top: 16, right: 16),
-                            width: 50,
-                            height: 50,
-                            child: PieChart(
-                              PieChartData(
-                                centerSpaceColor: Colors.white,
-                                startDegreeOffset: 180,
-                                sectionsSpace: 0,
-                                centerSpaceRadius: 25,
-                                sections: [
-                                  PieChartSectionData(
-                                    showTitle: false,
-                                    value: 25,
-                                    radius: 12,
-                                    color: AppConstants.greyColor,
-                                  ),
-                                  PieChartSectionData(
-                                    showTitle: false,
-                                    value: 75,
-                                    radius: 12,
-                                    color: AppConstants.blueColor,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            top: 32,
-                            left: 14,
-                            child: Text(
-                              '75%',
-                              style: AppConstants.primaryTextStyle,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+              SpendingLimitWidget(),
+              SizedBox(height: 20),
+              TransactionListWidget(
+                items: AppConstants.ACTIVITY_TRANSACTION_LIST,
+                iconSize: 24,
               ),
             ],
           ),

@@ -31,4 +31,25 @@ class AppConstants {
       imageUrl: 'assets/apple-logo.png',
     ),
   ];
+
+  static List<Transaction> ACTIVITY_TRANSACTION_LIST = <Transaction>[
+    Transaction(
+      name: 'Gift Voucher',
+      amount: 99,
+      date: DateTime.now(),
+      imageUrl: 'assets/ticket-logo.png',
+    ),
+    Transaction(
+      name: 'Bank Transfer',
+      amount: 1024,
+      date: DateTime.now(),
+      imageUrl: 'assets/bank-logo.png',
+    ),
+    Transaction(
+      name: 'Online Shopping',
+      amount: 30,
+      date: DateTime.now(),
+      imageUrl: 'assets/cart-logo.png',
+    ),
+  ];
 }

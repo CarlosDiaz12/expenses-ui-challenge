@@ -1,3 +1,4 @@
+import 'package:expenses_ui_challenge/constants/app_constants.dart';
 import 'package:flutter/services.dart';
 
 import '../widgets/transaction_list_widget.dart';
@@ -31,7 +32,9 @@ class HomePage extends StatelessWidget {
               SizedBox(height: 20),
               WalletOverviewSection(),
               SizedBox(height: 20),
-              TransactionListWidget(),
+              TransactionListWidget(
+                items: AppConstants.TRANSACTION_LIST,
+              ),
             ],
           ),
         ),

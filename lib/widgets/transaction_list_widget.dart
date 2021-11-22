@@ -6,8 +6,12 @@ import 'package:intl/intl.dart';
 import 'muted_text.dart';
 
 class TransactionListWidget extends StatelessWidget {
+  final List<Transaction> items;
+  final double? iconSize;
   const TransactionListWidget({
     Key? key,
+    required this.items,
+    this.iconSize,
   }) : super(key: key);
 
   @override
@@ -24,10 +28,13 @@ class TransactionListWidget extends StatelessWidget {
           physics: NeverScrollableScrollPhysics(),
           separatorBuilder: (ctx, i) => SizedBox(height: 10),
           shrinkWrap: true,
-          itemCount: AppConstants.TRANSACTION_LIST.length,
+          itemCount: items.length,
           itemBuilder: (ctx, index) {
-            var transaction = AppConstants.TRANSACTION_LIST[index];
-            return _TransactionListItem(transaction: transaction);
+            var transaction = items[index];
+            return _TransactionListItem(
+              transaction: transaction,
+              iconSize: iconSize,
+            );
           },
         ),
       ],
@@ -35,17 +42,22 @@ class TransactionListWidget extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class _TransactionListItem extends StatelessWidget {
-  const _TransactionListItem({
+  late double? iconSize;
+  _TransactionListItem({
     Key? key,
     required this.transaction,
+    this.iconSize,
   }) : super(key: key);
 
   final Transaction transaction;
 
   @override
   Widget build(BuildContext context) {
+    iconSize ??= 32;
     return ListTile(
+      contentPadding: EdgeInsets.symmetric(horizontal: 4),
       title: Text(
         transaction.name,
         style: AppConstants.primaryTextStyle.copyWith(
@@ -57,12 +69,18 @@ class _TransactionListItem extends StatelessWidget {
         backgroundColor: AppConstants.greyColor,
         child: Image.asset(
           transaction.imageUrl,
-          width: 32,
-          height: 32,
+          width: iconSize,
+          height: iconSize,
         ),
       ),
       subtitle: MutedText(
         label: DateFormat.yMMMd().add_jm().format(transaction.date),
+      ),
+      trailing: Text(
+        '\$${transaction.amount}',
+        style: AppConstants.primaryTextStyle.copyWith(
+          fontSize: 18,
+        ),
       ),
     );
   }

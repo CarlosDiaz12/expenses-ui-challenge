@@ -1,5 +1,6 @@
-import '../constants/app_constants.dart';
 import 'package:flutter/material.dart';
+
+import '../constants/app_constants.dart';
 
 class BottomNavigation extends StatelessWidget {
   const BottomNavigation({Key? key}) : super(key: key);
